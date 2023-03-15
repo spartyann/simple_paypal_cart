@@ -13,5 +13,8 @@
             "email": "tassy.yann@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+		"scssphp/scssphp": "^1.11.0",
+        "symfony/var-dumper": "^6.2"
+	}
 }

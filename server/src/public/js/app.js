@@ -1,9 +1,10 @@
+// https://dev.to/krowemoh/a-vue3-tutorial-08-vue-components-without-a-build-system-2-a-better-way-g1g
 // VS plug-in: Comment tagged templates
 const template = /*html*/`
     <div class="container-fluid">
 		<h1>
 
-		sdf
+			<button class="btn btn-primary">coucou</button>
 		</h1>
 	</div>
 `;

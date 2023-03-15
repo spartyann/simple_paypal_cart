@@ -1,0 +1,15 @@
+
+.tbl, .tbl-100{display:table !important}
+
+.tbl-100{width:100%}
+
+.tr{display:table-row}
+
+.td,.td-100{vertical-align:top;display:table-cell}
+
+.td-100{width:100%}
+
+.vat{vertical-align:top}
+.vam{vertical-align:middle}
+.vab{vertical-align:bottom}
+

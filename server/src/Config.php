@@ -13,5 +13,11 @@ class Config {
 	public static $BODY_AFTER = '</div>';
 
 
+	public static $BOOTSTRAP_VARIABLES = 
+	[
+		'primary' => "#0038d1"
+	];
+
+
 }
 
