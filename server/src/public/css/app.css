@@ -83,3 +83,16 @@
 .card.product:last-child {
 	border-bottom: none;
 }
+
+
+.material-icons{
+	vertical-align: middle;
+	font-size: 1em;
+}
+
+.btn {
+	vertical-align: middle;
+}
+.list-group-item-action{
+	cursor: pointer;
+}
