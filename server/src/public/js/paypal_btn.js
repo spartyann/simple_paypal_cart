@@ -1,13 +1,7 @@
 
 const template = /*html*/`
-    <div>
-		<button class="btn btn-primary">coucou</button>
-
-
-		<div>
-			<div ref="paypal_button_container" class="paypal_button_container"></div>
-		</div>
-
+    <div class="pt-4">
+		<div ref="paypal_button_container" class="paypal_button_container"></div>
 	</div>
 `;
 

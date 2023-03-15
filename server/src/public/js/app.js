@@ -3,7 +3,7 @@
 const template = /*html*/`
     <div class="container-fluid">
 		<h1>Paiement</h1>
-
+		<productsModal></productsModal>
 		<paypalBtn></paypalBtn>
 	</div>
 `;
@@ -17,7 +17,9 @@ $(function() {
 			}
 		},
 		components: {
-			'paypalBtn': Vue.defineAsyncComponent( () => import('./paypal_btn.js'))
+			'paypalBtn': Vue.defineAsyncComponent( () => import('./paypal_btn.js')),
+			'productsModal': Vue.defineAsyncComponent( () => import('./products_modal.js')),
+			
 		},
 		template: template,
 		methods: {
