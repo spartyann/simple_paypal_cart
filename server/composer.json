@@ -1,0 +1,17 @@
+{
+    "name": "spartyann/simple_paypal_cart",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yann Tassy",
+            "email": "tassy.yann@gmail.com"
+        }
+    ],
+    "require": {}
+}

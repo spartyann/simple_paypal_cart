@@ -1,0 +1,22 @@
+{
+	// Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+	// Pointez pour afficher la description des attributs existants.
+	// Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug PHP",
+			"type": "php",
+			"request": "launch",
+			"port": 9003,
+			"pathMappings": {
+				"/var/www": "${workspaceFolder}/server"
+			},
+			"xdebugSettings": {
+				"max_children": 500,
+				"max_data": 500,
+				"show_hidden": 0
+			}
+		}
+	]
+}

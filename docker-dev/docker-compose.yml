@@ -1,0 +1,83 @@
+version: '2'
+
+services:
+  spc-db:
+    image: spc-db:dev
+    container_name: "spc-db"
+    restart: always
+    volumes:
+      - ./volumes/db1:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=spc
+      - MYSQL_USER=spc
+      - MYSQL_PASSWORD=yuj4f6ghj514d6fj516gh51sdgh
+      - MYSQL_ROOT_PASSWORD=yuj4f6ghj514d6fj516gh51sdgh
+    networks:
+      - local_network
+
+  spc:
+    image: spc:dev
+    container_name: "spc"
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - DB_HOST=spc-db
+      - DB_PORT=3306
+      - DB_PASSWORD=yuj4f6ghj514d6fj516gh51sdgh
+      - DB_USERNAME=spc
+      - DB_DATABASE=spc
+      - DEBUG=true
+      - XDEBUG_CLIENT_IP=${XDEBUG_CLIENT_IP}
+
+    volumes:
+      - ../server:/var/www
+#      - ../../laravel/example-app:/var/www
+    depends_on:
+      - "spc-db"
+    networks:
+      - local_network
+      
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: "spc-phpmyadmin"
+    restart: always
+    environment:
+      - PMA_HOST=spc-db
+      - PMA_USER=root
+      - PMA_PASSWORD=yuj4f6ghj514d6fj516gh51sdgh
+      - UPLOAD_LIMIT=300M
+    ports:
+      - 8081:80
+    depends_on:
+      - "spc-db"
+    networks:
+      - local_network
+
+
+  adminer:
+    image: michalhosna/adminer
+    container_name: "spc-adminer"
+    restart: always
+    environment:
+      - ADMINER_DB=spc
+#      - ADMINER_DRIVER=mysql
+      - ADMINER_PASSWORD=yuj4f6ghj514d6fj516gh51sdgh
+      - ADMINER_SERVER=spc-db
+      - ADMINER_USERNAME=root
+      - ADMINER_AUTOLOGIN=1
+      - ADMINER_NAME="MD Book"
+#      - ADMINER_PLUGINS=tinymce
+      - ADMINER_DESIGN=lucas-sandery
+    ports:
+      - 8082:8080
+    depends_on:
+      - "spc-db"
+    networks:
+      - local_network
+      
+networks:
+  local_network:
