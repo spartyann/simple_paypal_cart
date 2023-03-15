@@ -2,10 +2,9 @@
 // VS plug-in: Comment tagged templates
 const template = /*html*/`
     <div class="container-fluid">
-		<h1>
+		<h1>Paiement</h1>
 
-			<button class="btn btn-primary">coucou</button>
-		</h1>
+		<paypalBtn></paypalBtn>
 	</div>
 `;
 
@@ -14,11 +13,11 @@ $(function() {
 		data() {
 			return {
 
-				name: "Toto"
+				products: []
 			}
 		},
 		components: {
-			//'Table': Vue.defineAsyncComponent( () => import('./test.js'))
+			'paypalBtn': Vue.defineAsyncComponent( () => import('./paypal_btn.js'))
 		},
 		template: template,
 		methods: {

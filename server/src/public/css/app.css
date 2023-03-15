@@ -13,3 +13,51 @@
 .vam{vertical-align:middle}
 .vab{vertical-align:bottom}
 
+
+
+.paypal_button_container{
+	display: inline-block;
+	width: 300px;
+}
+
+
+.vat { vertical-align: top;}
+.wfc { width: fit-content; }
+.wsnw { white-space: nowrap; }
+.form-control
+{
+	-webkit-appearance: auto;
+	-moz-appearance: auto;
+	appearance: auto;
+}
+.cards-types .card {
+	min-width: 180px;
+	max-width: 230px;
+	width: 23vw;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.cards-types .card:hover {
+	border-color: var(--bs-primary);
+	color: var(--bs-primary);
+}
+
+.cards-types .card.select {
+	border-color: var(--bs-primary);
+	border-width: 3px;
+	color: var(--bs-primary);
+}
+
+.cards-types .card:not(.select) .card-body>div {
+	padding: 2px;
+}
+
+#recap-zone{
+	margin-top: 30px;
+}
+
+#paiement-recap {
+	margin: 0 0 10px 0;
+}
+#paiement-recap-type, #paiement-recap-amount{ font-weight: bold; }
