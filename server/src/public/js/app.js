@@ -3,7 +3,7 @@
 const template = /*html*/`
     <div class="container-fluid">
 		<h1>Paiement</h1>
-		<productsModal></productsModal>
+		<productsModal @add="addProduct"></productsModal>
 		<paypalBtn></paypalBtn>
 	</div>
 `;
@@ -23,7 +23,10 @@ $(function() {
 		},
 		template: template,
 		methods: {
-			
+			addProduct(product)
+			{
+				console.log(product);
+			}
 		},
 		mounted() {
 			//this.getWorkers();

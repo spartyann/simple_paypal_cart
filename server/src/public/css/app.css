@@ -14,6 +14,15 @@
 .vab{vertical-align:bottom}
 
 
+.fz-70 { font-size: 70%;}
+.fz-80 { font-size: 80%;}
+.fz-90 { font-size: 90%;}
+.fz-100 { font-size: 100%;}
+.fz-110 { font-size: 110%;}
+.fz-120 { font-size: 120%;}
+.fz-130 { font-size: 130%;}
+.fz-140 { font-size: 140%;}
+.fz-150 { font-size: 150%;}
 
 .paypal_button_container{
 	display: inline-block;

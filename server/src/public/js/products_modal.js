@@ -28,7 +28,8 @@ const template = /*html*/`
 								
 												<h5 class="card-title">
 													{{ product.name }}
-													<span class="float-end badge bg-secondary" v-if="product.options.length == 1">
+													<span class="float-end badge bg-secondary"
+														v-if="product.options.length == 1 && product.options[0].price !== null">
 														{{ product.options[0].price }} {{ currencySymbol }}
 													</span>
 												</h5>
@@ -44,6 +45,7 @@ const template = /*html*/`
 													</div>
 
 													<div v-if="step == 'product' && product.options.length > 1">
+														<div>Choisissez une option:</div>
 														<ul class="list-group" v-if="Object.keys(product.options).length > 0">
 															<template v-for="(option) in product.options">
 																<li class="list-group-item list-group-item-action" 
@@ -64,14 +66,12 @@ const template = /*html*/`
 														<div class="tbl">
 															<div class="tr" v-if="selectedOption.price === null">
 																<div class="td wsnw vam">Prix:</div>
-																<div class="td p-1 vam">
-																	<input class="form-control form-control-sm" type="number"
+																<div class="td p-1 vam wsnw">
+																	<input class="form-control form-control-sm d-inline" type="number"
 																		v-model="customPrice" style="width: 80px"
 																		min="1"
 																		/>
-																</div>
-																<div class="td wsnw  vam">
-																	{{ currencySymbol }}
+																		{{ currencySymbol }}
 																</div>
 															</div>
 															<div class="tr">
@@ -82,8 +82,15 @@ const template = /*html*/`
 																		min="1"
 																	/>
 																</div>
-																<div class="td wsnw vam">
-																	<span class="badge bg-secondary ms-3">
+															</div>
+															<div class="tr">
+																<div class="td wsnw vam">Total:</div>
+																<div class="td p-1 vam">
+																	{{ quantity }}
+																	&times;
+																	{{ effectiveOptionPrice }}
+																	=
+																	<span class="badge bg-primary fz-100">
 																		{{ total }} {{ currencySymbol }}
 																	</span>
 																</div>
@@ -115,7 +122,7 @@ const template = /*html*/`
 						Précédent
 					</button>
 					
-					<button type="button" class="btn btn-primary" @click="add" v-if="step == 'final'">
+					<button type="button" class="btn btn-success" @click="add" v-if="step == 'product'">
 						<span class="material-icons">check</span>	
 						Ajouter
 					</button>
@@ -139,6 +146,7 @@ export default {
 			quantity: 1
 		}
 	},
+	emits: ['add'],
 
 	mounted(){
 		this.modal = new bootstrap.Modal(this.$refs.modal)
@@ -148,15 +156,36 @@ export default {
 	methods: {
 		open(){
 			this.modal.show();
+			this.step = 'products';
+			this.selectedProduct = null;
+			this.selectedOption = null;
+			this.customPrice = 10;
+			this.quantity = 1;
 		},
 
 		add(){
+			this.$emit('add', _.cloneDeep({
+				name: this.selectedProduct.name,
+				description: this.selectedProduct.description,
+				image: this.selectedProduct.image,
+				code: this.selectedProduct.code,
+				optionCode: this.selectedOption.code,
+				optionName: this.selectedOption.name,
+				quantity: _.cloneDeep(this.quantity),
+				price: this.effectiveOptionPrice,
+				total: this.total,
+				detail: {
+					product: this.selectedProduct,
+					option: this.selectedOption,
+					quantity: this.quantity,
+					customPrice: this.customPrice,
+				},
+			}))
 			this.modal.hide();
 		},
 
 		previous() {
 			if (this.step == 'product') this.step = 'products';
-			if (this.step == 'final') this.step = 'product';
 		},
 
 		selectProduct(product) {
