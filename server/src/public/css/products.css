@@ -1,0 +1,24 @@
+
+
+.card.product {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-radius: 0;
+}
+
+.card.product:last-child {
+	border-bottom: none;
+}
+
+
+.product-image{
+	max-width: 100%;
+	text-align: center;
+}
+
+.product-image img {
+	max-width: 100%;
+	max-height: 100px;
+}
+

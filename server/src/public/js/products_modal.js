@@ -1,9 +1,7 @@
 // https://dev.to/krowemoh/a-vue3-tutorial-08-vue-components-without-a-build-system-2-a-better-way-g1g
 // VS plug-in: Comment tagged templates
 const template = /*html*/`
-	<button type="button" class="btn btn-primary" @click="open">
-		Ajouter un produit
-	</button>
+	
 
 	<!-- Modal -->
 	<div ref="modal" class="modal  fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,12 +31,12 @@ const template = /*html*/`
 														{{ product.options[0].price }} {{ currencySymbol }}
 													</span>
 												</h5>
-												<h6 class="card-subtitle mb-2 text-muted">{{ product.description }}</h6>
+												<h6 class="card-subtitle mb-2 fz-80 text-muted">{{ product.description }}</h6>
 								
 												<div class="mt-3">
 
 													<div v-if="step == 'products'">
-														<button class="btn btn-primary" @click="selectProduct(product)">
+														<button class="btn btn-sm btn-primary" @click="selectProduct(product)">
 															<span v-if="product.options.length == 1">Choisir ce produit</span>
 															<span v-if="product.options.length > 1">Choisir une option</span>
 														</button>
@@ -171,6 +169,7 @@ export default {
 				code: this.selectedProduct.code,
 				optionCode: this.selectedOption.code,
 				optionName: this.selectedOption.name,
+				hasSingleOption: this.hasSingleOption(this.selectedProduct),
 				quantity: _.cloneDeep(this.quantity),
 				price: this.effectiveOptionPrice,
 				total: this.total,

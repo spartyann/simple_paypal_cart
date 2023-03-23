@@ -1,97 +1,10 @@
-
-.tbl, .tbl-100{display:table !important}
-
-.tbl-100{width:100%}
-
-.tr{display:table-row}
-
-.td,.td-100{vertical-align:top;display:table-cell}
-
-.td-100{width:100%}
-
-.vat{vertical-align:top}
-.vam{vertical-align:middle}
-.vab{vertical-align:bottom}
-
-
-.fz-70 { font-size: 70%;}
-.fz-80 { font-size: 80%;}
-.fz-90 { font-size: 90%;}
-.fz-100 { font-size: 100%;}
-.fz-110 { font-size: 110%;}
-.fz-120 { font-size: 120%;}
-.fz-130 { font-size: 130%;}
-.fz-140 { font-size: 140%;}
-.fz-150 { font-size: 150%;}
-
-.paypal_button_container{
-	display: inline-block;
-	width: 300px;
-}
-
-
-.vat { vertical-align: top;}
-.wfc { width: fit-content; }
-.wsnw { white-space: nowrap; }
-.form-control
-{
-	-webkit-appearance: auto;
-	-moz-appearance: auto;
-	appearance: auto;
-}
-.cards-types .card {
-	min-width: 180px;
-	max-width: 230px;
-	width: 23vw;
-	display: inline-block;
-	cursor: pointer;
-}
-
-.cards-types .card:hover {
-	border-color: var(--bs-primary);
-	color: var(--bs-primary);
-}
-
-.cards-types .card.select {
-	border-color: var(--bs-primary);
-	border-width: 3px;
-	color: var(--bs-primary);
-}
-
-.cards-types .card:not(.select) .card-body>div {
-	padding: 2px;
-}
-
-#recap-zone{
-	margin-top: 30px;
-}
-
-#paiement-recap {
-	margin: 0 0 10px 0;
-}
-#paiement-recap-type, #paiement-recap-amount{ font-weight: bold; }
-
-
-.product-image{
-	max-width: 100%;
-	text-align: center;
-}
-
-.product-image img{
-	max-width: 100%;
-	max-height: 150px;
-}
-
-.card.product {
-	border-left: none;
-	border-right: none;
-	border-top: none;
-	border-radius: 0;
-}
-
-.card.product:last-child {
-	border-bottom: none;
-}
+@import "bootstrap.css";
+@import "tools.css";
+@import "form.css";
+@import "products.css";
+@import "bootstrap_over.css";
+@import "paypal.css";
+@import "card.css";
 
 
 .material-icons{
@@ -99,9 +12,7 @@
 	font-size: 1em;
 }
 
-.btn {
-	vertical-align: middle;
-}
-.list-group-item-action{
-	cursor: pointer;
+
+.main-container {
+	max-width: 700px;
 }
