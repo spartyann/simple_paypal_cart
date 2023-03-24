@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Config\Config;
+use App\Config\Lang;
 
 class Page {
 
@@ -17,13 +18,15 @@ class Page {
 		$currency_symbol = Config::$CURRENCY_SYMBOL;
 		$auto_open_modal_product = Config::$AUTO_OPEN_MODAL_PRODUCT;
 		$paypal_purchase_unit_description = Config::$PAYPAL_PURCHASE_UNIT_DESCRIPTION;
-		
-		
+
+		$locale = Config::$LOCALE;
+		$lang_messages = json_encode(Lang::MESSAGES());
 		
 		$productsString = json_encode(Config::PRODUCTS());
 		
 
 		$vueUrl = Config::$DEBUG ? 'https://unpkg.com/vue@3.2.47/dist/vue.global.js' : 'https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js';
+		$vueI18nUrl = Config::$DEBUG ? 'https://unpkg.com/vue-i18n@9.1.0/dist/vue-i18n.global.js' : 'https://unpkg.com/vue-i18n@9.1.0/dist/vue-i18n.global.prod.js';
 
 		echo <<<HTML
 <!doctype html>
@@ -49,12 +52,14 @@ class Page {
 		<script src="https://www.paypal.com/sdk/js?client-id={$paypal_client_id}&currency={$paypal_currency}"></script>
 
 		<script src="$vueUrl"></script>
+		<script src="$vueI18nUrl"></script>
 		
-		<script src="/js/app.js"></script>
-
 		<style>{ $custom_style }</style>
 
 		<script>
+			var global_locale="{$locale}";
+			var global_lang_messages={$lang_messages};
+
 			var global_paypal_currency="{$paypal_currency}";
 			var global_currency_symbol="{$currency_symbol}";
 			var global_auto_open_modal_product="{$auto_open_modal_product}";
@@ -62,6 +67,8 @@ class Page {
 			
 			var global_products={$productsString};
 		</script>
+
+		<script src="/js/app.js"></script>
 	</head>
 	<body>
 		$body_before

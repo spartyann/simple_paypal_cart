@@ -8,7 +8,9 @@ const template = /*html*/`
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Choisissez un produit</h5>
+					<h5 class="modal-title" id="exampleModalLabel">
+						{{ $t("modale.product.title")}}
+					</h5>
 				</div>
 				<div class="modal-body">
 
@@ -37,13 +39,13 @@ const template = /*html*/`
 
 													<div v-if="step == 'products'">
 														<button class="btn btn-sm btn-primary" @click="selectProduct(product)">
-															<span v-if="product.options.length == 1">Choisir ce produit</span>
-															<span v-if="product.options.length > 1">Choisir une option</span>
+															<span v-if="product.options.length == 1">{{ $t("modale.product.btn.choose_product")}}</span>
+															<span v-if="product.options.length > 1">{{ $t("modale.product.btn.choose_option")}}</span>
 														</button>
 													</div>
 
 													<div v-if="step == 'product' && product.options.length > 1">
-														<div>Choisissez une option:</div>
+														<div>{{ $t("modale.product.option.choose")}}</div>
 														<ul class="list-group" v-if="Object.keys(product.options).length > 0">
 															<template v-for="(option) in product.options">
 																<li class="list-group-item list-group-item-action" 
@@ -73,7 +75,7 @@ const template = /*html*/`
 																</div>
 															</div>
 															<div class="tr">
-																<div class="td wsnw vam">Quantité:</div>
+																<div class="td wsnw vam">{{ $t("modale.product.quantity")}}</div>
 																<div class="td p-1 vam">
 																	<input class="form-control form-control-sm" type="number"
 																		v-model="quantity" style="width: 80px"
@@ -82,7 +84,7 @@ const template = /*html*/`
 																</div>
 															</div>
 															<div class="tr">
-																<div class="td wsnw vam">Total:</div>
+																<div class="td wsnw vam">{{ $t("modale.product.total")}}</div>
 																<div class="td p-1 vam">
 																	{{ quantity }}
 																	&times;
@@ -111,18 +113,18 @@ const template = /*html*/`
 				</div>
 				<div class="modal-footer">
 					
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ $t("modale.product.btn.cancel")}}</button>
 					
 					<div class="flex-fill"></div>
 
 					<button type="button" class="btn btn-primary" @click="previous" v-if="step != 'products'">
 						<span class="material-icons">arrow_back</span>	
-						Précédent
+						{{ $t("modale.product.btn.previous")}}
 					</button>
 					
 					<button type="button" class="btn btn-success" @click="add" v-if="step == 'product'">
 						<span class="material-icons">check</span>	
-						Ajouter
+						{{ $t("modale.product.btn.add")}}
 					</button>
 				</div>
 			</div>

@@ -46,7 +46,7 @@ const template = /*html*/`
 			</tbody>
 			<tfoot>
 				<tr>
-					<th class="text-end">Total</th>
+					<th class="text-end">{{ $t("cart.total")}}</th>
 					<th></th>
 					<th><span class="badge bg-primary">{{ total }} {{ currencySymbol }}</span></th>
 					<th></th>

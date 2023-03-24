@@ -5,15 +5,15 @@ const template = /*html*/`
 
     <div class="container main-container">
 
-		<h1>Paiement</h1>
+		<h1>{{ $t("title") }}</h1>
 
 		<div v-if="state == 'preparing'">
 			<div class="card placehoder" v-if="products.length == 0">
 				<div class="card-body">
-					Il n'y a aucun produit
+					{{ $t("cart.no_product")}}
 					<div class="pt-3">
 						<button type="button" class="btn btn-primary" @click="openModalProduct">
-							Ajouter un produit
+							{{ $t("btn.product.add")}}
 						</button>
 					</div>
 				</div>
@@ -25,7 +25,7 @@ const template = /*html*/`
 				></cart>
 				<div class="text-end">
 					<button type="button" class="btn btn-primary" @click="openModalProduct">
-						Ajouter un produit
+						{{ $t("btn.product.add")}}
 					</button>
 				</div>
 			</div>
@@ -35,7 +35,7 @@ const template = /*html*/`
 		<div v-if="state == 'paid'">
 
 			<div class="alert alert-success" role="alert">
-				Merci pour votre achat !
+				{{ $t("paid.confirmation")}}
 			</div>
 
 			<cart
@@ -90,7 +90,6 @@ $(function() {
 			},
 
 			paid() {
-				console.log('paid');
 				this.state = 'paid'
 			}
 		},
@@ -105,6 +104,13 @@ $(function() {
 			
 		}
 	})
+
+	const i18n = VueI18n.createI18n({
+		locale: global_locale,
+		messages: global_lang_messages,
+	}) 
+
+	app.use(i18n)
 
 	app.mixin({
 		methods: {
