@@ -8,6 +8,7 @@ class Config {
 
 	public static $PAYPAL_CLIENT_ID = '';
 	public static $PAYPAL_CURRENCY = 'EUR';
+	public static $CURRENCY_SYMBOL = '€';
 
 	public static function PAGE_TITLE() { return 'Paiement'; }
 

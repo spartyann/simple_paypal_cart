@@ -9,12 +9,16 @@ class Page {
 	public static function print() {
 
 		$title= Config::PAGE_TITLE();
-		$bodyBefore = Config::BODY_BEFORE();
-		$bodyAfter = Config::BODY_AFTER();
-		$customStyle = Config::CUSTOM_STYLE();
-		$paypalClientId = Config::$PAYPAL_CLIENT_ID;
-		$paypalCurrency = Config::$PAYPAL_CURRENCY;
-		$currencySymbol = Config::$CURRENCY_SYMBOL;
+		$body_before = Config::BODY_BEFORE();
+		$body_after = Config::BODY_AFTER();
+		$custom_style = Config::CUSTOM_STYLE();
+		$paypal_client_id = Config::$PAYPAL_CLIENT_ID;
+		$paypal_currency = Config::$PAYPAL_CURRENCY;
+		$currency_symbol = Config::$CURRENCY_SYMBOL;
+		$auto_open_modal_product = Config::$AUTO_OPEN_MODAL_PRODUCT;
+		$paypal_purchase_unit_description = Config::$PAYPAL_PURCHASE_UNIT_DESCRIPTION;
+		
+		
 		
 		$productsString = json_encode(Config::PRODUCTS());
 		
@@ -42,25 +46,27 @@ class Page {
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!-- Replace "test" with your own sandbox Business account app client ID -->
-		<script src="https://www.paypal.com/sdk/js?client-id={$paypalClientId}&currency={$paypalCurrency}"></script>
+		<script src="https://www.paypal.com/sdk/js?client-id={$paypal_client_id}&currency={$paypal_currency}"></script>
 
 		<script src="$vueUrl"></script>
 		
 		<script src="/js/app.js"></script>
 
-		<style>{$customStyle}</style>
+		<style>{ $custom_style }</style>
 
 		<script>
-			var global_paypal_currency="{$paypalCurrency}";
-			var global_currency_symbol="{$currencySymbol}";
+			var global_paypal_currency="{$paypal_currency}";
+			var global_currency_symbol="{$currency_symbol}";
+			var global_auto_open_modal_product="{$auto_open_modal_product}";
+			var global_paypal_purchase_unit_description="{$paypal_purchase_unit_description}";
 			
 			var global_products={$productsString};
 		</script>
 	</head>
 	<body>
-		$bodyBefore
+		$body_before
 		<div id="app"></div>
-		$bodyAfter
+		$body_after
 	</body>
 </html>
 HTML;

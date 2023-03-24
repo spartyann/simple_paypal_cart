@@ -5,6 +5,7 @@
 @import "bootstrap_over.css";
 @import "paypal.css";
 @import "card.css";
+@import "interactivity.css";
 
 
 .material-icons{
@@ -12,7 +13,8 @@
 	font-size: 1em;
 }
 
-
 .main-container {
-	max-width: 700px;
+	max-width: 900px;
 }
+
+

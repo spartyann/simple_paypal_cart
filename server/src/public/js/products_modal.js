@@ -164,20 +164,23 @@ export default {
 		add(){
 			this.$emit('add', _.cloneDeep({
 				name: this.selectedProduct.name,
+				paypalName: this.selectedProduct.paypal_name,
 				description: this.selectedProduct.description,
 				image: this.selectedProduct.image,
 				code: this.selectedProduct.code,
 				optionCode: this.selectedOption.code,
 				optionName: this.selectedOption.name,
+				optionPaypalName: this.selectedOption.paypal_name,
 				hasSingleOption: this.hasSingleOption(this.selectedProduct),
 				quantity: _.cloneDeep(this.quantity),
 				price: this.effectiveOptionPrice,
+				isCustomPrice: this.selectedOption.price === null,
 				total: this.total,
 				detail: {
 					product: this.selectedProduct,
 					option: this.selectedOption,
 					quantity: this.quantity,
-					customPrice: this.customPrice,
+					customPrice: this.selectedOption.price === null ? this.customPrice : null,
 				},
 			}))
 			this.modal.hide();
