@@ -55,7 +55,10 @@ const template = /*html*/`
 																	<span class="float-end badge bg-secondary" v-if="option.price !== null">
 																		{{ option.price }} {{ currencySymbol }}
 																	</span>
-																	{{ option.name }}
+																	<div>{{ option.name }}</div>
+																	<div class="fz-80" v-if="option.description != undefined">
+																		<i>{{ option.description }}</i>
+																	</div>
 																</li>
 															</template>
 														</ul>
@@ -80,6 +83,7 @@ const template = /*html*/`
 																	<input class="form-control form-control-sm" type="number"
 																		v-model="quantity" style="width: 80px"
 																		min="1"
+																		:disabled="forceQuantity !== null"
 																	/>
 																</div>
 															</div>
@@ -153,6 +157,16 @@ export default {
 	
 	},
 
+	watch: {
+		selectedOption: {
+			handler() {
+				if (this.forceQuantity !== null) this.quantity = this.forceQuantity;
+			},
+			deep: true
+		}
+	},
+
+
 	methods: {
 		open(){
 			this.modal.show();
@@ -172,9 +186,10 @@ export default {
 				code: this.selectedProduct.code,
 				optionCode: this.selectedOption.code,
 				optionName: this.selectedOption.name,
+				optionDescription: this.selectedOption.description,
 				optionPaypalName: this.selectedOption.paypal_name,
 				hasSingleOption: this.hasSingleOption(this.selectedProduct),
-				quantity: _.cloneDeep(this.quantity),
+				quantity: this.quantity,
 				price: this.effectiveOptionPrice,
 				isCustomPrice: this.selectedOption.price === null,
 				total: this.total,
@@ -227,7 +242,12 @@ export default {
 
 		total(){
 			return this.quantity * this.effectiveOptionPrice
+		},
 
+		forceQuantity() {
+			if (this.selectedOption == null) return null;
+			if (this.selectedOption.force_quantity == undefined) return null;
+			return this.selectedOption.force_quantity;
 		}
 	}
 

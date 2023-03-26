@@ -21,7 +21,7 @@ const template = /*html*/`
 			<div v-else>
 				<cart
 					:products="products"
-					@delete="deleteProduct"
+					@deleteProduct="deleteProduct"
 				></cart>
 				<div class="text-end">
 					<button type="button" class="btn btn-primary" @click="openModalProduct">
@@ -41,7 +41,6 @@ const template = /*html*/`
 			<cart
 				:products="products"
 				:canDelete="false"
-				@delete="deleteProduct"
 			></cart>
 
 		</div>

@@ -63,7 +63,7 @@ export default {
 		products: { },
 		canDelete: { default: true, type: Boolean },
 	},
-	emits: ['delete'],
+	emits: ['deleteProduct'],
 
 	template: template,
 
@@ -78,8 +78,8 @@ export default {
 	methods: {
 
 		deleteProduct(ip){
-			this.$emit('delete', ip);
-			this.products.splice(ip,1);
+
+			this.$emit('deleteProduct', ip);
 		}
 	},
 	mounted() {

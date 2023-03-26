@@ -9,13 +9,13 @@ class Lang {
 		$messages = [
 			'fr' => [
 				'title' => 'Paiement',
-				'cart.no_product' => 'Il n\'y a aucun produit',
+				'cart.no_product' => 'Il n\'y a aucun article',
 				'cart.total' => 'Total:',
-				'btn.product.add' => 'Ajouter un produit',
-				'modale.product.title' => 'Choisissez un produit',
+				'btn.product.add' => 'Ajouter un article',
+				'modale.product.title' => 'Choisissez un article',
 				'modale.product.quantity' => 'Quantité:',
 				'modale.product.total' => 'Total:',
-				'modale.product.btn.choose_product' => 'Choisir ce produit',
+				'modale.product.btn.choose_product' => 'Choisir cet article',
 				'modale.product.btn.choose_option' => 'Choisir une option',
 				'modale.product.option.choose' => 'Choisissez une option:',
 				'modale.product.btn.cancel' => 'Annuler',
