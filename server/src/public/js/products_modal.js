@@ -196,7 +196,6 @@ export default {
 				detail: {
 					product: this.selectedProduct,
 					option: this.selectedOption,
-					quantity: this.quantity,
 					customPrice: this.selectedOption.price === null ? this.customPrice : null,
 				},
 			}))

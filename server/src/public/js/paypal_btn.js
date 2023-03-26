@@ -22,12 +22,11 @@ export default {
 		}
 	},
 
-    data() {
-        return {
-           
-
-        }
-    },
+	data() {
+		return {
+			
+		}
+	},
 
 	computed: {
 		total() {
@@ -136,5 +135,5 @@ export default {
 			else this.paypal.actions.enable()
 		}
 	}
-    
+
 }
