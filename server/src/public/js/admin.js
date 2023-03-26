@@ -2,8 +2,9 @@
 // VS plug-in: Comment tagged templates
 const template = /*html*/`
 	<div>
+		<h1>Administration</h1>
 
-		sdf
+		<div> TODO </div>
 	</div>
 `;
 
