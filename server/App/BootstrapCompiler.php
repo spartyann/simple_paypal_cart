@@ -10,7 +10,7 @@ class BootstrapCompiler {
 
 	public static function compileBootstrap()
 	{
-		$destCssFile = __DIR__ . '/public/css/bootstrap.css';
+		$destCssFile = dirname(__DIR__) . '/public/css/bootstrap.css';
 
 		$bsVariables = Config::$BOOTSTRAP_VARIABLES;
 		$checkMarker = '/* ' . json_encode($bsVariables) . ' */';

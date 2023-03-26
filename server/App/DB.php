@@ -132,9 +132,7 @@ class DB {
 			self::logError("SQL error on request: " . $sql);
 		}
 
-		$res = mysqli_fetch_object($queryResult);
-
-		//dd($res);
+		$res = mysqli_fetch_all($queryResult);
 
 		if (is_array($res) == false) return [ $res ];
 
@@ -152,9 +150,10 @@ class DB {
 
 			// Init DB
 
-			$tables = self::sql("SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE FROM  information_schema.TABLES WHERE TABLE_SCHEMA LIKE '"
+			$tables = self::sql("SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE FROM  information_schema.TABLES WHERE TABLE_SCHEMA = '"
 			 . Config::$DB_DATABASE . "'");
 
+			
 			if ($tables == null || count($tables) != 3)
 			{
 				self::sql("CREATE TABLE IF NOT EXISTS pp_migrations (
