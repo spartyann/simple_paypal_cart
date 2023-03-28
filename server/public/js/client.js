@@ -92,14 +92,14 @@ export default {
 
 		save(paypalResult){
 			axios.post('/', {
-				action: "add",
+				action: "save_payment",
 				products: this.products,
 				paypalResult: paypalResult
 				
 			}).then(function (response) {
-				console.log(response);
+
 			}).catch(function (error) {
-				console.log(error);
+				
 			})
 		}
 	},
@@ -108,7 +108,7 @@ export default {
 		this.$nextTick(() => {
 			setTimeout(() => {
 				if (global_auto_open_modal_product) self.openModalProduct();
-			}, 300)
+			}, 100)
 		})
 		
 		

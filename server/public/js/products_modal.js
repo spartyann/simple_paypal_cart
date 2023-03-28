@@ -154,7 +154,15 @@ export default {
 
 	mounted(){
 		this.modal = new bootstrap.Modal(this.$refs.modal)
-	
+
+		if (global_debug)
+		{
+			let self = this
+			setTimeout(() => {
+				self.selectProduct(this.products[0])
+				self.add();
+			}, 700);
+		}
 	},
 
 	watch: {
@@ -175,6 +183,7 @@ export default {
 			this.selectedOption = null;
 			this.customPrice = 10;
 			this.quantity = 1;
+			
 		},
 
 		add(){

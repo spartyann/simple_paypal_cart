@@ -16,9 +16,11 @@ class App {
 			$products = $data["products"] ?? null;
 			$action = $data["action"] ?? null;
 
-			if ($action == 'add')
+			if ($action == 'save_payment')
 			{
 				if (Config::$STORE_IN_DB) DB::save($products, $paypalResult);
+
+				$this->jsonResponse(true);
 			}
 		}
 		else
@@ -27,6 +29,13 @@ class App {
 			Page::print();
 		}
 	}
+
+	private function jsonResponse($data)
+	{
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($data);
+	}
+
 
 
 }

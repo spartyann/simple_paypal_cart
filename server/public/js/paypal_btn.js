@@ -110,8 +110,15 @@ export default {
 
 			},
 			// Finalize the transaction on the server after payer approval
-			onApprove(data) {
-				self.$emit("paid", data);
+			onApprove(data, actions) {
+
+				return actions.order.capture().then(function(orderData) {
+					self.$emit("paid", {
+						data: data,
+						orderData: orderData
+					});
+				})
+				
 			},
 				 
 			onCancel(data) {

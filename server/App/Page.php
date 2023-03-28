@@ -9,6 +9,9 @@ class Page {
 
 	public static function print() {
 
+		$debug = Config::$DEBUG;
+		$debug_string = Config::$DEBUG ? 'true': 'false';
+
 		$title= Config::PAGE_TITLE();
 		$body_before = Config::BODY_BEFORE();
 		$body_after = Config::BODY_AFTER();
@@ -58,6 +61,7 @@ class Page {
 		<style>{ $custom_style }</style>
 
 		<script>
+			var global_debug={$debug_string};
 			var global_locale="{$locale}";
 			var global_lang_messages={$lang_messages};
 
