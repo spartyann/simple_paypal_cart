@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5e7369523bc2b83fe516beee9abb6295fca97067',
+        'reference' => '35e0ef2036238afa340d4a05d5f454a5b38cb363',
         'name' => 'spartyann/simple_paypal_cart',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5e7369523bc2b83fe516beee9abb6295fca97067',
+            'reference' => '35e0ef2036238afa340d4a05d5f454a5b38cb363',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

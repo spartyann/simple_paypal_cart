@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Config\Config;
+use Config\Config;
 
 class DB {
 

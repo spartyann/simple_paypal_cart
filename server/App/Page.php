@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Config\Config;
-use App\Config\Lang;
+use Config\Config;
+use Config\Lang;
 
 class Page {
 

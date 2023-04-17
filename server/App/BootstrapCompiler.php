@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Config\Config;
+use Config\Config;
 use ScssPhp\ScssPhp\Compiler;
 
 class BootstrapCompiler {

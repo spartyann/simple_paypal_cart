@@ -18,6 +18,10 @@ class ComposerStaticInited976d3b0e84ff6f266c5c5af0428e35
             'Symfony\\Component\\VarDumper\\' => 28,
             'ScssPhp\\ScssPhp\\' => 16,
         ),
+        'C' => 
+        array (
+            'Config\\' => 7,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -36,6 +40,10 @@ class ComposerStaticInited976d3b0e84ff6f266c5c5af0428e35
         'ScssPhp\\ScssPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
+        ),
+        'Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Config',
         ),
         'App\\' => 
         array (
