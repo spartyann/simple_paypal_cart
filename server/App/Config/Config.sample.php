@@ -59,13 +59,13 @@ class Config {
 				'paypal_name' => 'Shiatsu',
 				'description' => 'Séance de Shiatsu',
 				'image' => '/images/shiatsu.jpg',
-				'link' => 'https://buy.stripe.com/test_00g6qegAAcxh9kQ8wy',
 				'options' => [
 					[
 						'code' => 'standard',
 						'name' => 'Tarif pour 1 séance',
 						'paypal_name' => '',
 						'price' => 60,
+						'link' => 'https://buy.stripe.com/test_00g6qegAAcxh9kQ8wy',
 					]
 				]
 			],
@@ -76,17 +76,18 @@ class Config {
 				'paypal_name' => 'Reiki',
 				'description' => 'Séance de Reiki',
 				'image' => '/images/reiki.jpg',
-				'link' => 'https://buy.stripe.com/test_00gbKyfww54P54A289',
 				'options' => [
 					[
 						'code' => 'standard',
 						'name' => 'Séance standard',
 						'price' => 50,
+						'link' => 'https://buy.stripe.com/test_00gbKyfww54P54A289',
 					],
 					[
 						'code' => 'premiere',
 						'name' => 'Première séance',
 						'description' => 'Ce tarif est valable pour 1 personne avant le 31/03/2023',
+						'link' => 'https://buy.stripe.com/test_00gbKyfww54P54A289',
 						'price' => 30,
 					]
 				]
@@ -97,7 +98,6 @@ class Config {
 				'paypal_name' => 'Bon cadeau',
 				'description' => 'Offrez à une personne une séance de Reiki ou de Shiatsu',
 				'image' => '/images/gift.jpg',
-				'link' => 'https://buy.stripe.com/test_dR6cOCessdBl8gMcMM',
 				'options' => [
 					[ 'price' => 50, 'name' => "Bon cadeau à 50 € (tarif standard Reiki)", 'code' => 's50' ],
 					[ 'price' => 60, 'name' => "Bon cadeau à 60 € (tarif standard Shiatsu)", 'code' => 's60' ],
@@ -107,7 +107,8 @@ class Config {
 						'code' => 'custom',
 						'name' => 'Montant personnalisé',
 						'price' => null, // Custom
-						'force_quantity' => 1
+						'force_quantity' => 1,
+						'link' => 'https://buy.stripe.com/test_dR6cOCessdBl8gMcMM',
 					],
 				]
 			],

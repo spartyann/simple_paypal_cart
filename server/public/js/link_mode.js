@@ -4,7 +4,7 @@ const template = /*html*/`
 
 	<h1>{{ $t("title") }}</h1>
 
-	<div>
+	<div class="mt-5">
 
 		<div v-for="(product, indexProdut) in products">
 			
@@ -21,26 +21,24 @@ const template = /*html*/`
 						<h5 class="">
 							{{ product.name }}
 						</h5>
-						<h6 class="mb-2 fz-80 text-muted">{{ product.description }}</h6>
+						<p class="mb-2 fz-90">{{ product.description }}</p>
 						<div>
-							
-							<ul class="list-group">
-								<template v-for="(option) in product.options">
-									<li class="list-group-item list-group-item-action" 
+							<template v-for="(option) in product.options">
+								<div class="mb-2">
+									<button class="btn btn-outline-dark text-start w-100" 
 										@click="selectOption(option)"
 										v-if="option.link !== undefined"
 									>
-										<span class="float-end badge bg-secondary" v-if="option.price !== null">
+										<span class="float-end badge bg-primary " v-if="option.price !== null">
 											{{ option.price }} {{ currencySymbol }}
 										</span>
 										<div>{{ option.name }}</div>
 										<div class="fz-80" v-if="option.description != undefined">
 											<i>{{ option.description }}</i>
 										</div>
-									</li>
-								</template>
-							</ul>
-							
+									</button>
+								</div>
+							</template>
 						</div>
 					</div>
 				</div>
