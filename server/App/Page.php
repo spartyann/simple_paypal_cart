@@ -3,7 +3,6 @@
 namespace App;
 
 use Config\Config;
-use Config\Lang;
 
 class Page {
 

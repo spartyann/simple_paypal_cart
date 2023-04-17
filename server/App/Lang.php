@@ -1,6 +1,8 @@
 <?php
 
-namespace Config;
+namespace App;
+
+use Config\Config;
 
 class Lang {
 
