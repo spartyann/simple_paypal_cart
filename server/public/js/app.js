@@ -2,9 +2,20 @@
 // VS plug-in: Comment tagged templates
 const template = /*html*/`
 	
-    <div class="container main-container">
+    <div class="container main-container"
+		:class="{
+			'mode-cart': mode == 'cart',
+			'mode-link': mode == 'link'
+		}"
+	>
 		<admin v-if="isRouteAdmin"></admin>
-		<client v-else></client>
+
+		<paid v-else-if="isRoutePaid"></paid>
+
+		<template v-else>
+			<cart_mode v-if="mode == 'cart'"></cart_mode>
+			<link_mode v-if="mode == 'link'"></link_mode>
+		</template>
 	</div>
 `;
 
@@ -18,7 +29,9 @@ $(function() {
 			}
 		},
 		components: {
-			'client': Vue.defineAsyncComponent( () => import('./client.js')),
+			'cart_mode': Vue.defineAsyncComponent( () => import('./cart_mode.js')),
+			'link_mode': Vue.defineAsyncComponent( () => import('./link_mode.js')),
+			'paid': Vue.defineAsyncComponent( () => import('./paid.js')),
 			'admin': Vue.defineAsyncComponent( () => import('./admin.js')),
 			
 		},
@@ -27,7 +40,13 @@ $(function() {
 		computed: {
 			isRouteAdmin() {
 				return urlParams.has("admin");
-			}
+			},
+
+			isRoutePaid() {
+				return urlParams.has("paid");
+			},
+
+			mode() { return global_mode; }
 		},
 		methods: {
 			

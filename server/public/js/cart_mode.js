@@ -35,7 +35,7 @@ const template = /*html*/`
 	<div v-if="state == 'paid'">
 
 		<div class="alert alert-success" role="alert">
-			{{ $t("paid.confirmation")}}
+			{{ $t("cart.paid.confirmation")}}
 		</div>
 
 		<cart

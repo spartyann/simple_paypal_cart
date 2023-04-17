@@ -21,8 +21,12 @@ class Lang {
 				'modale.product.btn.cancel' => 'Annuler',
 				'modale.product.btn.previous' => 'Précédent',
 				'modale.product.btn.add' => 'Ajouter',
+				'cart.paid.confirmation' => 'Merci pour votre achat !',
 
-				'paid.confirmation' => 'Merci pour votre achat !',
+
+
+				'title.paid' => 'Merci pour votre achat :)',
+				'link_mode.paid.confirmation' => 'Votre achat a bien été pris en compte.'
 			]
 		];
 

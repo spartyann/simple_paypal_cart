@@ -12,6 +12,8 @@ class Page {
 		$debug = Config::$DEBUG;
 		$debug_string = Config::$DEBUG ? 'true': 'false';
 
+		$mode = Config::$MODE;
+
 		$title= Config::PAGE_TITLE();
 		$body_before = Config::BODY_BEFORE();
 		$body_after = Config::BODY_AFTER();
@@ -62,6 +64,7 @@ class Page {
 
 		<script>
 			var global_debug={$debug_string};
+			var global_mode="{$mode}";
 			var global_locale="{$locale}";
 			var global_lang_messages={$lang_messages};
 
